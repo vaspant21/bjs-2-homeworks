@@ -5,22 +5,14 @@ function getArrayParams (arr) {
     let sum;
     let avg = sum / arr.lenght;
  
-    for (let = 0; i < arr.lenght; i++) {
-       let value = arr;
-      if（max < value) {
-        max = value;
-      } else {
-        max = max;
-      };
-      if（min > value) {
-        min = value;
-      } else {
-        min = min;
-      };
+    for (let i = 0; i < arr.lenght; i++) {
+       let value = arr[i][i];
+       max = max < value ? value : max;
+       min = min > value ? value : min;
        sum[i] += value;
     };
-    
-    return {'max': max, 'min': min, 'avg': (sum / arr.lenght)}
+ 
+    return {'max': max, 'min': min, 'avg': avg}
  };
 
 
