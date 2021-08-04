@@ -1,17 +1,17 @@
 // Задание 1
-function getArrayParams (arr) {
+function getArrayParams (...arr) {
     let min = Infinity;
     let max = -Infinity;
     let sum = 0;
 
-    for (let i = 0; i < arr.lenght; i++) {
+    for (let i = 0; i < arr.length; i++) {
        let value = arr[i];
         max = max < value ? value : max;
         min = min > value ? value : min;
         sum += value;
     };
     
-    return {'max': max, 'min': min, 'avg': sum / arr.lenght}
+    return {'max': max, 'min': min, 'avg': sum / arr.length}
  };
 
 

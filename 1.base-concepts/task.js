@@ -3,7 +3,7 @@ function solveEquation(a, b, c) {
   let arr;
   const discriminant = Math.pow(b, 2) - 4 * a * c; 
     if (discriminant < 0) {
-      console.log(`Количество действительных корней равно 0.`);
+      arr = [];
     } else if (discriminant === 0) {
       const singleRoot = -b / (2 * a);
       arr = [singleRoot];
@@ -15,12 +15,16 @@ function solveEquation(a, b, c) {
   return arr
 }; 
 
+/* function calculateTotalMortgage(percent, contribution, amount, date) {
+  let totalAmount;
+  
+  код для задачи №2 писать здесь
 
-// function calculateTotalMortgage(percent, contribution, amount, date) {
-//   let totalAmount;
+  return totalAmount;
+} */
 
-//   // код для задачи №2 писать здесь
+function calculateTotalMortgage (cretidRate, downpayment, creditAmount, payOffDate) {
+  const creditBody = creditAmount - downpayment;
 
-//   return totalAmount;
-// }
+};
 
