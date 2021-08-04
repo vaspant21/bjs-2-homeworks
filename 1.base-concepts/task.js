@@ -1,10 +1,8 @@
 'use strict'
 function solveEquation(a, b, c) {
-  let arr;
+  let arr = [];
   const discriminant = Math.pow(b, 2) - 4 * a * c; 
-    if (discriminant < 0) {
-      arr = [];
-    } else if (discriminant === 0) {
+    if (discriminant === 0) {
       const singleRoot = -b / (2 * a);
       arr = [singleRoot];
     } else if (discriminant > 0) {
@@ -12,7 +10,7 @@ function solveEquation(a, b, c) {
       const rootTwo = (-b + Math.sqrt(discriminant)) / (2 * a);
       arr = [rootOne, rootTwo];
     };
-  return arr
+  return arr;
 }; 
 
 /* function calculateTotalMortgage(percent, contribution, amount, date) {
@@ -23,8 +21,8 @@ function solveEquation(a, b, c) {
   return totalAmount;
 } */
 
-function calculateTotalMortgage (cretidRate, downpayment, creditAmount, payOffDate) {
+/* function calculateTotalMortgage (cretidRate, downpayment, creditAmount, payOffDate) {
   const creditBody = creditAmount - downpayment;
 
-};
+}; */
 
