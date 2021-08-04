@@ -11,7 +11,7 @@ function getArrayParams (...arr) {
         sum += value;
     };
     
-    return {'max': max, 'min': min, 'avg': sum / arr.length}
+    return {'max': max, 'min': min, 'avg': (sum / arr.length).toFixed(0)}
  };
 
 
