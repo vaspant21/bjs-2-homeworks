@@ -21,8 +21,7 @@ function solveEquation(a, b, c) {
   return totalAmount;
 } */
 
-/* function calculateTotalMortgage (cretidRate, downpayment, creditAmount, payOffDate) {
+function calculateTotalMortgage (cretidRate, downpayment, creditAmount, payOffDate) {
   const creditBody = creditAmount - downpayment;
 
-}; */
-
+};
