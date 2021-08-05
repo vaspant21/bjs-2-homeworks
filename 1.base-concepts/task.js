@@ -25,6 +25,6 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   let creditBody = creditAmount - downPayment;
   let numOfMonths = (new Date (payOffDate) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
   let totalDebt = 0;
-  let monthlyPayment = creditBody * ((creditRate/100/12) + (creditRate/100/12) / (((1 + (creditRate/100/12))^numOfMonths) - 1));
-  return totalDebt = (monthlyPayment * 12);
+  let monthlyPayment = creditAmount * ((creditRate / 100 / 12) + ((creditRate / 100 / 12)/(Math.pow((1 + (creditRate / 100 / 12)), 12) - 1)));
+  return totalDebt = (monthlyPayment * numOfMonths);
 };
