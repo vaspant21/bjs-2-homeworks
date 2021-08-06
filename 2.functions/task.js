@@ -14,24 +14,30 @@ function getArrayParams (...arr) {
     return {'max': max, 'min': min, 'avg': (sum / arr.length).toFixed(0)}
  };
 
-
 // Задание 2
 function worker(arr) {
-  let sum;
+  let sum = 0;
+  let arrItem = [0];
 
-  // Ваш код
-
+  for (let i = 0; i < arr.length; i++) {
+     sum += arr[i]
+  };
   return sum;
-}
+};
 
-function makeWork(arrOfArr, func) {
-  let max
+function mincer(arrOfArr, func) {
+  let max = -Infinity;
+  arrOfarr = [[0]];
 
-  // Ваш кода
-  // for ...
+  for (let i = 0; i < arrOfArr.length; i++) {
+    func(arrOfArr[[i]]);
+    if (func(arrOfArr[[i]]) > max) {
+      max = sum;
+    };
+  };
+  return max;
+ };
   
-  return max
-}
 
 // Задание 3
 function worker2(arr) {
