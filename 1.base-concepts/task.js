@@ -58,7 +58,6 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   
   //Сумма общего долга
   let totalDebt = (monthlyPayment * numOfMonths);
-  console.log(numOfMonths);
 
   return Number(totalDebt.toFixed(0));
 };
