@@ -27,11 +27,11 @@ function worker(arr) {
 
 function mincer(arrOfArr, func) {
   let max = -Infinity;
-  arrOfarr = [[0]];
+  arrOfarr = [0];
 
   for (let i = 0; i < arrOfArr.length; i++) {
-    func(arrOfArr[[i]]);
-    if (func(arrOfArr[[i]]) > max) {
+    func(arr)[i];
+    if (func(arrOfArr) > max) {
       max = sum;
     };
   };
