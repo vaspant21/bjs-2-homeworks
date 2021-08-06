@@ -6,8 +6,8 @@ function solveEquation(a, b, c) {
       const singleRoot = -b / (2 * a);
       arr = [singleRoot];
     } else if (discriminant > 0) {
-      const rootOne = (-b - Math.sqrt(discriminant)) / (2 * a);
-      const rootTwo = (-b + Math.sqrt(discriminant)) / (2 * a);
+      const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
+      const rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
       arr = [rootOne, rootTwo];
     };
   return arr;
