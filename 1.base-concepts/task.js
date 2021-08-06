@@ -23,36 +23,42 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDate) {
   let creditBody = creditAmount - downPayment;
-  let monthlyRate = ((creditRate / 100) / 12);
+  let monthlyRate = (creditRate / 100 / 12);
+  
+  //Расчет количества месяцев
+  let numOfMonths = (new Date (payOffDate) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
 
+  //Валидация вводимых значений аргументов
   if (creditRate >= 0 && typeof creditRate === "number") {
     creditRate = true;
-  } else if {
-    console.log(`Параметр "Процентная ставка" содержит неправильное значение "test".`);
+  } else {
+    console.log(`Параметр "Процентная ставка" содержит неправильное значение.`);
   };
 
   if (downPayment >= 0 && typeof downPayment === "number") {
     downPayment = true;
   } else {
-    console.log(`Параметр "Начальный взнос" содержит неправильное значение "test".`);
+    console.log(`Параметр "Начальный взнос" содержит неправильное значение.`);
   };
 
   if (creditAmount >= 0 && typeof creditAmount === "number") {
     creditAmount = true;
   } else {
-    console.log(`Параметр "Общая стоимость" содержит неправильное значение "test".`);
+    console.log(`Параметр "Общая стоимость" содержит неправильное значение.`);
   };
 
-  if (payOffDate >= new Date ()) {
-      payOffDate = true;
+  if (new Date (payOffDate) >= new Date ()) {
+    payOffDate = true;
   } else {
-    console.log(`Ошибка! Дата погашения кредита не может быть ранее текущей даты "test".`);
+    console.log(`Ошибка! Дата погашения кредита не может предшествовать текущей дате.`);
   };
 
-  let numOfMonths = (new Date (payOffDate) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
+  //Расчет ежемесячных платежей
   let monthlyPayment = creditBody * (monthlyRate + (monthlyRate /(Math.pow((1 + monthlyRate), numOfMonths) - 1)));
+  
+  //Сумма общего долга
   let totalDebt = (monthlyPayment * numOfMonths);
   console.log(numOfMonths);
-  return Number(totalDebt.toFixed(0));
 
+  return Number(totalDebt.toFixed(0));
 };
