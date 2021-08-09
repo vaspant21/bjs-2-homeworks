@@ -11,14 +11,12 @@ function getArrayParams (...arr) {
         sum += value;
     };
     
-    return {'max': max, 'min': min, 'avg': (sum / arr.length).toFixed(0)}
+    return {'max': max, 'min': min, 'avg': Number((sum / arr.length).toFixed(0))};
  };
 
 // Задание 2
 function worker(arr) {
   let sum = 0;
-  let arrItem = [0];
-
   for (let i = 0; i < arr.length; i++) {
      sum += arr[i]
   };
@@ -27,18 +25,16 @@ function worker(arr) {
 
 function mincer(arrOfArr, func) {
   let max = -Infinity;
-  arrOfarr = [0];
-
+  const maxArray = function func(arrOfArr);
   for (let i = 0; i < arrOfArr.length; i++) {
-    func(arr)[i];
-    if (func(arrOfArr) > max) {
-      max = sum;
+    if (maxArray > max) {
+      max = maxArray;
     };
   };
   return max;
  };
   
-
+ 
 // Задание 3
 function worker2(arr) {
   // Ваш код
