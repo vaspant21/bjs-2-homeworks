@@ -29,28 +29,20 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   let numOfMonths = (new Date (payOffDate) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
 
   //Валидация вводимых значений аргументов
-  if (creditRate >= 0 && typeof creditRate === "number") {
-    creditRate = true;
-  } else {
-    console.log(`Параметр "Процентная ставка" содержит неправильное значение.`);
+  if (!(creditRate >= 0 && typeof creditRate === "number")) {
+    creditRate = `Параметр "Процентная ставка" содержит неправильное значение "test".`;
   };
 
-  if (downPayment >= 0 && typeof downPayment === "number") {
-    downPayment = true;
-  } else {
-    console.log(`Параметр "Начальный взнос" содержит неправильное значение.`);
+  if (!(downPayment >= 0 && typeof downPayment === "number")) {
+    downPayment = `Параметр "Начальный взнос" содержит неправильное значение "test".`;
   };
 
-  if (creditAmount >= 0 && typeof creditAmount === "number") {
-    creditAmount = true;
-  } else {
-    console.log(`Параметр "Общая стоимость" содержит неправильное значение.`);
+  if (!(creditAmount >= 0 && typeof creditAmount === "number")) {
+    creditAmount = `Параметр "Общая стоимость" содержит неправильное значение "test".`;
   };
 
-  if (new Date (payOffDate) >= new Date ()) {
-    payOffDate = true;
-  } else {
-    console.log(`Ошибка! Дата погашения кредита не может предшествовать текущей дате.`);
+  if (!(new Date (payOffDate) >= new Date ())) {
+    numOfMonths = `Ошибка! Дата погашения кредита не может предшествовать текущей дате.`;
   };
 
   //Расчет ежемесячных платежей
@@ -59,5 +51,5 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   //Сумма общего долга
   let totalDebt = (monthlyPayment * numOfMonths);
 
-  return Number(totalDebt.toFixed(0));
+  return Number(totalDebt.toFixed(2));
 };
