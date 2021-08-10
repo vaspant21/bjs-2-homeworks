@@ -6,8 +6,8 @@ function solveEquation(a, b, c) {
       const singleRoot = -b / (2 * a);
       arr = [singleRoot];
     } else if (discriminant > 0) {
-      const rootOne = (-b - Math.sqrt(discriminant)) / (2 * a);
-      const rootTwo = (-b + Math.sqrt(discriminant)) / (2 * a);
+      const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
+      const rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
       arr = [rootOne, rootTwo];
     };
   return arr;
@@ -29,27 +29,19 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   let numOfMonths = (new Date (payOffDate) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
 
   //Валидация вводимых значений аргументов
-  if (creditRate >= 0 && typeof creditRate === "number") {
-    creditRate = true;
-  } else {
-    return `Параметр "Процентная ставка" содержит неправильное значение ${creditRate}`.
+  if (!(creditRate >= 0 && typeof creditRate === "number")) {
+    return `Параметр "Процентная ставка" содержит неправильное значение ${creditRate}.`
   };
 
-  if (downPayment >= 0 && typeof downPayment === "number") {
-    downPayment = true;
-  } else {
+  if (!(downPayment >= 0 && typeof downPayment === "number")) {
     return `Параметр "Начальный взнос" содержит неправильное значение ${downPayment}.`
   };
 
-  if (creditAmount >= 0 && typeof creditAmount === "number") {
-    creditAmount = true;
-  } else {
+  if (!(creditAmount >= 0 && typeof creditAmount === "number")) {
     return `Параметр "Общая стоимость" содержит неправильное значение ${creditAmount}.`
   };
 
-  if (new Date (payOffDate) >= new Date ()) {
-    payOffDate = true;
-  } else {
+  if (!(new Date (payOffDate) >= new Date ())) {
     return `Ошибка! Дата погашения кредита не может предшествовать текущей дате.`
   };
 
@@ -61,3 +53,5 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
 
   return Number(totalDebt.toFixed(0));
 };
+
+calculateTotalMortgage();
