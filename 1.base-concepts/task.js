@@ -18,6 +18,7 @@ if (discriminant === 0) {
 //TASK 2
 
 function calcualteTotalMortgage(creditRate, downpayment, creditAmount, payOffDate) {
+  
   let creditBody = creditAmount - downpayment;
   let monthlyRate = (creditRate / 100 / 12);
 
@@ -48,6 +49,3 @@ function calcualteTotalMortgage(creditRate, downpayment, creditAmount, payOffDat
 
   return Number(totalDebt.toFixed(2));
 };
-
-console.log(calcualteTotalMortgage(10, 0, 50000, 12)
-);
