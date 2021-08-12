@@ -36,7 +36,7 @@ function calculateTotalMortgage(creditRate, downpayment, creditAmount, payOffDat
     return `Параметр "Общая стоимость" содержит неправильное значение "${creditAmount}"`
   };
   if (isNaN(payOffDate) | payOffDate < 0) {
-    return `Параметр "Срок" содержит неправильное значение "${payOffDate}".`
+    return `Параметр "Срок" содержит неправильное значение "${payOffDate}"`
   };
 
   payOffDate = Number(payOffDate);
