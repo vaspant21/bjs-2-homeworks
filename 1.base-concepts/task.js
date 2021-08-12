@@ -1,27 +1,68 @@
 'use strict'
+
+//TASK 1
 function solveEquation(a, b, c) {
   let arr = [];
-  const discriminant = Math.pow(b, 2) - 4 * a * c; 
-    if (discriminant === 0) {
-      const singleRoot = -b / (2 * a);
-      arr = [singleRoot];
-    } else if (discriminant > 0) {
-      const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
-      const rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
-      arr = [rootOne, rootTwo];
-    };
+  const discriminant = Math.pow(b, 2) - 4 * a * c;
+  if (discriminant === 0) {
+    const singleRoot = -b / (2 * a);
+    arr = [singleRoot];
+  } else if (discriminant > 0) {
+    const rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
+    const rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
+    arr = [rootOne, rootTwo];
+  };
   return arr;
-}; 
+};
 
-/* function calculateTotalMortgage(percent, contribution, amount, date) {
-  let totalAmount;
-  
-  код для задачи №2 писать здесь
+//TASK 2
 
-  return totalAmount;
-} */
+function getTotalMortgage(creditRate, downpayment, creditAmount, payOffDate) {
+  let creditBody = creditAmount - downpayment;
+  let monthlyRate = (creditRate / 100 / 12);
 
-function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDate) {
+  // Расчет количества месяцев
+  // let numOfMonths = (new Date (2022, 7, 12) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
+
+
+  //Валидация вводимых значений аргументов
+  if (isNaN(creditRate)) {
+    return `Параметр creditRate содержит неправильное значение "${creditRate}".`
+  };
+  if (isNaN(downpayment)) {
+    return `Параметр downpayment содержит неправильное значение "${downpayment}".`
+  };
+  if (isNaN(creditAmount)) {
+    return `Параметр creditAmount содержит неправильное значение "${creditAmount}".`
+  };
+  if (isNaN(payOffDate) || payOffDate < 0) {
+    return `Параметр payOffDate содержит неправильное значение "${payOffDate}".`
+  };
+
+  payOffDate = Number(payOffDate);
+  creditRate = Number(creditRate);
+  downpayment = Number(downpayment);
+  creditAmount = Number(creditAmount);
+
+  //Расчет ежемесячных платежей
+  let monthlyPayment = creditBody * (monthlyRate + (monthlyRate / (Math.pow((1 + monthlyRate), payOffDate) - 1)));
+  // let monthlyPayment = creditBody * (monthlyRate + (monthlyRate / (Math.pow((1 + monthlyRate), numOfMonths) - 1)));
+
+  //Сумма общего долга
+  let totalDebt = (monthlyPayment * payOffDate);
+
+  return Number(totalDebt.toFixed(2));
+};
+
+console.log(getTotalMortgage(10, 0, 50000, 12));
+console.log(getTotalMortgage(10, 1000, 50000, 12));
+console.log(getTotalMortgage(10, 0, 20000, 24));
+console.log(getTotalMortgage(10, 1000, 20000, 24));
+console.log(getTotalMortgage(10, 20000, 20000, 12));
+console.log(getTotalMortgage(10, 0, 10000, 36));
+console.log(getTotalMortgage(15, 0, 10000, 36));
+
+/* function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDate) {
   let creditBody = creditAmount - downPayment;
   let monthlyRate = (creditRate / 100 / 12);
   
@@ -54,4 +95,4 @@ function calculateTotalMortgage (creditRate, downPayment, creditAmount, payOffDa
   return Number(totalDebt.toFixed(0));
 };
 
-calculateTotalMortgage();
+calculateTotalMortgage(); */
