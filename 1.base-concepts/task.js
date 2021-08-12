@@ -24,7 +24,6 @@ function getTotalMortgage(creditRate, downpayment, creditAmount, payOffDate) {
   // Расчет количества месяцев
   // let numOfMonths = (new Date (2022, 7, 12) - new Date ()) / 1000 / 60 / 60 / 24 / 30.5;
 
-
   //Валидация вводимых значений аргументов
   if (isNaN(creditRate)) {
     return `Параметр creditRate содержит неправильное значение "${creditRate}".`
