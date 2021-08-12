@@ -27,16 +27,16 @@ function calculateTotalMortgage(creditRate, downpayment, creditAmount, payOffDat
 
   //Валидация вводимых значений аргументов
   if (isNaN(creditRate) || creditRate < 0) {
-    return `Параметр creditRate содержит неправильное значение "${creditRate}".`
+    return `Параметр "Процентная ставка" содержит неправильное значение "${creditRate}"`
   };
   if (isNaN(downpayment) || downpayment < 0) {
-    return `Параметр downpayment содержит неправильное значение "${downpayment}".`
+    return `Параметр "Начальный взнос" содержит неправильное значение "${downpayment}"`
   };
   if (isNaN(creditAmount) || creditAmount < 0) {
-    return `Параметр creditAmount содержит неправильное значение "${creditAmount}".`
+    return `Параметр "Общая стоимость" содержит неправильное значение "${creditAmount}"`
   };
   if (isNaN(payOffDate) | payOffDate < 0) {
-    return `Параметр payOffDate содержит неправильное значение "${payOffDate}".`
+    return `Параметр "Срок" содержит неправильное значение "${payOffDate}".`
   };
 
   payOffDate = Number(payOffDate);
