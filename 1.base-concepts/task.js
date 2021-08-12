@@ -4,7 +4,7 @@
 function solveEquation(a, b, c) {
   let arr = [];
   const discriminant = Math.pow(b, 2) - 4 * a * c;
-if (discriminant === 0) {
+  if (discriminant === 0) {
     let x = -b / (2 * a);
     arr = [x];
   } else if (discriminant > 0) {
@@ -17,22 +17,25 @@ if (discriminant === 0) {
 
 //TASK 2
 
-function calcualteTotalMortgage(creditRate, downpayment, creditAmount, payOffDate) {
-  
+function calculateTotalMortgage(creditRate, downpayment, creditAmount, payOffDate) {
+
   let creditBody = creditAmount - downpayment;
   let monthlyRate = (creditRate / 100 / 12);
 
+  let numOfmonths = payOffDate.getMonth() - new Date().getMonth() +
+    (12 * (payOffDate.getFullYear() - new Date().getFullYear()));
+
   //Валидация вводимых значений аргументов
-  if (isNaN(creditRate) && creditRate < 0) {
+  if (isNaN(creditRate) || creditRate < 0) {
     return `Параметр creditRate содержит неправильное значение "${creditRate}".`
   };
-  if (isNaN(downpayment) && downpayment < 0) {
+  if (isNaN(downpayment) || downpayment < 0) {
     return `Параметр downpayment содержит неправильное значение "${downpayment}".`
   };
-  if (isNaN(creditAmount) && creditAmount < 0) {
+  if (isNaN(creditAmount) || creditAmount < 0) {
     return `Параметр creditAmount содержит неправильное значение "${creditAmount}".`
   };
-  if (isNaN(payOffDate) && payOffDate < 0) {
+  if (isNaN(payOffDate) | payOffDate < 0) {
     return `Параметр payOffDate содержит неправильное значение "${payOffDate}".`
   };
 
@@ -41,11 +44,13 @@ function calcualteTotalMortgage(creditRate, downpayment, creditAmount, payOffDat
   downpayment = Number(downpayment);
   creditAmount = Number(creditAmount);
 
+  new Date(payOffDate).getMonth - new Date().getMonth;
+
   //Расчет ежемесячных платежей
-  let monthlyPayment = creditBody * (monthlyRate + (monthlyRate / (Math.pow((1 + monthlyRate), payOffDate) - 1)));
+  let monthlyPayment = creditBody * (monthlyRate + (monthlyRate / (Math.pow((1 + monthlyRate), numOfmonths) - 1)));
 
   //Сумма общего долга
-  let totalDebt = (monthlyPayment * payOffDate);
+  let totalDebt = (monthlyPayment * numOfmonths);
 
   return Number(totalDebt.toFixed(2));
 };
