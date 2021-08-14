@@ -1,6 +1,5 @@
 'use strict'
 
-
 //--------------TASK 1--------------
 function getArrayParams(arr) {
   let min = Infinity;
@@ -26,7 +25,6 @@ function getArrayParams(arr) {
 
 console.log(getArrayParams([-99, 99, 10])) // { min: -99, max: 99, avg: `3.33` }
 console.log(getArrayParams([1, 2, 3, -100, 10])) // { min: -100, max: 10, avg: `-16.80` }
-
 
 //--------------TASK 2--------------
 function worker(arr) {
@@ -59,7 +57,6 @@ console.log(makeWork(arrOfArr, worker)); // 31
 
 arrOfArr = [[0, 0, 0], [-1, -100]];
 console.log(makeWork(arrOfArr, worker)); // 0
-
 
 //--------------TASK 3--------------
 function worker2(arr) {
